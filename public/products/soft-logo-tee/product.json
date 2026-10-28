@@ -1,0 +1,50 @@
+{
+  "name": "HEAVYWEIGHT BOX TEE",
+  "slug": "soft-logo-tee",
+  "price": "$85",
+  "priceUsd": "$85",
+  "tagline": "280gsm drop-shoulder combed jersey",
+  "description": "Heavyweight 280gsm organic cotton jersey with reinforced double-needle collar, dropped shoulders, and a structured relaxed box fit. Pigment-dyed and enzyme-washed for a soft vintage drape.",
+  "category": "tops",
+  "edition": "01 / 09",
+  "badge": "HERO PIECE",
+  "hook": {
+    "x": 0.5,
+    "y": 0.09
+  },
+  "colors": [
+    {
+      "id": "onyx",
+      "name": "Onyx Black",
+      "hex": "#1a1918",
+      "front": "/products/soft-logo-tee/onyx/front.webp",
+      "frontRail": "/products/soft-logo-tee/onyx/front_rail.webp",
+      "side": "/products/soft-logo-tee/onyx/side.webp",
+      "sideRail": "/products/soft-logo-tee/onyx/side_rail.webp",
+      "back": "/products/soft-logo-tee/onyx/back.webp",
+      "backRail": "/products/soft-logo-tee/onyx/back_rail.webp"
+    },
+    {
+      "id": "charcoal",
+      "name": "Washed Charcoal",
+      "hex": "#383633",
+      "front": "/products/soft-logo-tee/charcoal/front.webp",
+      "frontRail": "/products/soft-logo-tee/charcoal/front_rail.webp",
+      "side": "/products/soft-logo-tee/charcoal/side.webp",
+      "sideRail": "/products/soft-logo-tee/charcoal/side_rail.webp",
+      "back": "/products/soft-logo-tee/charcoal/back.webp",
+      "backRail": "/products/soft-logo-tee/charcoal/back_rail.webp"
+    },
+    {
+      "id": "bone",
+      "name": "Aged Bone",
+      "hex": "#d2ccc2",
+      "front": "/products/soft-logo-tee/bone/front.webp",
+      "frontRail": "/products/soft-logo-tee/bone/front_rail.webp",
+      "side": "/products/soft-logo-tee/bone/side.webp",
+      "sideRail": "/products/soft-logo-tee/bone/side_rail.webp",
+      "back": "/products/soft-logo-tee/bone/back.webp",
+      "backRail": "/products/soft-logo-tee/bone/back_rail.webp"
+    }
+  ]
+}

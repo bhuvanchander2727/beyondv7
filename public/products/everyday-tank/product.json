@@ -1,0 +1,50 @@
+{
+  "name": "DROP-NEEDLE RIB TANK",
+  "slug": "everyday-tank",
+  "price": "$65",
+  "priceUsd": "$65",
+  "tagline": "Wide rib knit with curved raw hem",
+  "description": "Premium 320gsm wide drop-needle rib cotton tank designed with an exaggerated scoop neckline, deep armholes, and a sculpted curved hem. Garment washed for maximum comfort.",
+  "category": "tops",
+  "edition": "05 / 05",
+  "badge": "CORE",
+  "hook": {
+    "x": 0.5,
+    "y": 0.09
+  },
+  "colors": [
+    {
+      "id": "onyx",
+      "name": "Onyx Black",
+      "hex": "#191817",
+      "front": "/products/everyday-tank/onyx/front.webp",
+      "frontRail": "/products/everyday-tank/onyx/front_rail.webp",
+      "side": "/products/everyday-tank/onyx/side.webp",
+      "sideRail": "/products/everyday-tank/onyx/side_rail.webp",
+      "back": "/products/everyday-tank/onyx/back.webp",
+      "backRail": "/products/everyday-tank/onyx/back_rail.webp"
+    },
+    {
+      "id": "charcoal",
+      "name": "Dark Charcoal",
+      "hex": "#353331",
+      "front": "/products/everyday-tank/charcoal/front.webp",
+      "frontRail": "/products/everyday-tank/charcoal/front_rail.webp",
+      "side": "/products/everyday-tank/charcoal/side.webp",
+      "sideRail": "/products/everyday-tank/charcoal/side_rail.webp",
+      "back": "/products/everyday-tank/charcoal/back.webp",
+      "backRail": "/products/everyday-tank/charcoal/back_rail.webp"
+    },
+    {
+      "id": "chalk",
+      "name": "Raw Chalk",
+      "hex": "#d5cfc5",
+      "front": "/products/everyday-tank/chalk/front.webp",
+      "frontRail": "/products/everyday-tank/chalk/front_rail.webp",
+      "side": "/products/everyday-tank/chalk/side.webp",
+      "sideRail": "/products/everyday-tank/chalk/side_rail.webp",
+      "back": "/products/everyday-tank/chalk/back.webp",
+      "backRail": "/products/everyday-tank/chalk/back_rail.webp"
+    }
+  ]
+}

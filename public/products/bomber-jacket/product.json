@@ -1,0 +1,49 @@
+{
+  "slug": "bomber-jacket",
+  "name": "MA-1 TACTICAL BOMBER",
+  "price": "$240",
+  "tagline": "Heavy satin finish nylon with rib trims",
+  "hook": {
+    "x": 0.5,
+    "y": 0.09
+  },
+  "colors": [
+    {
+      "id": "sage",
+      "name": "Sage",
+      "hex": "#a8bc9f",
+      "dir": "sage",
+      "front": "/products/bomber-jacket/sage/front.webp",
+      "frontRail": "/products/bomber-jacket/sage/front_rail.webp",
+      "side": "/products/bomber-jacket/sage/side.webp",
+      "sideRail": "/products/bomber-jacket/sage/side_rail.webp",
+      "back": "/products/bomber-jacket/sage/back.webp",
+      "backRail": "/products/bomber-jacket/sage/back_rail.webp"
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "hex": "#f1de9f",
+      "dir": "butter",
+      "front": "/products/bomber-jacket/butter/front.webp",
+      "frontRail": "/products/bomber-jacket/butter/front_rail.webp",
+      "side": "/products/bomber-jacket/butter/side.webp",
+      "sideRail": "/products/bomber-jacket/butter/side_rail.webp",
+      "back": "/products/bomber-jacket/butter/back.webp",
+      "backRail": "/products/bomber-jacket/butter/back_rail.webp"
+    },
+    {
+      "id": "rose",
+      "name": "Rose",
+      "hex": "#eec2c8",
+      "dir": "rose",
+      "front": "/products/bomber-jacket/rose/front.webp",
+      "frontRail": "/products/bomber-jacket/rose/front_rail.webp",
+      "side": "/products/bomber-jacket/rose/side.webp",
+      "sideRail": "/products/bomber-jacket/rose/side_rail.webp",
+      "back": "/products/bomber-jacket/rose/back.webp",
+      "backRail": "/products/bomber-jacket/rose/back_rail.webp"
+    }
+  ],
+  "description": "Flight nylon shell with water-repellent finish, oversized dropped shoulders, heavy gauge two-way front zipper, utility sleeve pocket with signature puller."
+}

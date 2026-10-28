@@ -1,0 +1,49 @@
+{
+  "slug": "oversized-hoodie",
+  "name": "BOX CUT HEAVY HOODIE",
+  "price": "$165",
+  "tagline": "520gsm combed French terry",
+  "hook": {
+    "x": 0.5,
+    "y": 0.09
+  },
+  "colors": [
+    {
+      "id": "oat",
+      "name": "Oat",
+      "hex": "#e8dccb",
+      "dir": "oat",
+      "front": "/products/oversized-hoodie/oat/front.webp",
+      "frontRail": "/products/oversized-hoodie/oat/front_rail.webp",
+      "side": "/products/oversized-hoodie/oat/side.webp",
+      "sideRail": "/products/oversized-hoodie/oat/side_rail.webp",
+      "back": "/products/oversized-hoodie/oat/back.webp",
+      "backRail": "/products/oversized-hoodie/oat/back_rail.webp"
+    },
+    {
+      "id": "blush",
+      "name": "Blush",
+      "hex": "#ebd0ce",
+      "dir": "blush",
+      "front": "/products/oversized-hoodie/blush/front.webp",
+      "frontRail": "/products/oversized-hoodie/blush/front_rail.webp",
+      "side": "/products/oversized-hoodie/blush/side.webp",
+      "sideRail": "/products/oversized-hoodie/blush/side_rail.webp",
+      "back": "/products/oversized-hoodie/blush/back.webp",
+      "backRail": "/products/oversized-hoodie/blush/back_rail.webp"
+    },
+    {
+      "id": "mist",
+      "name": "Mist",
+      "hex": "#cbd8df",
+      "dir": "mist",
+      "front": "/products/oversized-hoodie/mist/front.webp",
+      "frontRail": "/products/oversized-hoodie/mist/front_rail.webp",
+      "side": "/products/oversized-hoodie/mist/side.webp",
+      "sideRail": "/products/oversized-hoodie/mist/side_rail.webp",
+      "back": "/products/oversized-hoodie/mist/back.webp",
+      "backRail": "/products/oversized-hoodie/mist/back_rail.webp"
+    }
+  ],
+  "description": "Constructed from custom-milled 520gsm combed French terry cotton. Double-layered hood without drawstrings, dropped shoulders, and blind-stitched hems."
+}

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111110">
+  <title>BEYOND — Dark Luxury Streetwear</title>
+  <meta name="description" content="BEYOND — Editorial dark luxury streetwear collection. Archival silhouettes, distressed leather, heavyweight French terry, and industrial tailoring.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111110'/><text x='50%' y='68%' font-family='sans-serif' font-weight='800' font-size='20' fill='%23B7A17D' text-anchor='middle'>B</text></svg>">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="dark-theme">
+
+  <div class="app" id="app" aria-label="BEYOND Dark Luxury Streetwear Experience">
+
+    <!-- Concrete Industrial Studio Backdrop -->
+    <div class="bg" aria-hidden="true">
+      <div class="concrete-texture"></div>
+      <div class="ambient-glow"></div>
+      <div class="bottom-gradient"></div>
+      <div class="vignette"></div>
+      <div class="tech-grid"></div>
+      
+      <!-- Huge Bold Uppercase BEYOND Headline Behind Product -->
+      <div class="hero-wordmark" id="heroWordmark">BEYOND</div>
+      
+      <div class="grain"></div>
+    </div>
+
+    <!-- Minimal 3-Control Top Header Floating Directly Over Concrete -->
+    <header class="top" id="topHeader">
+      <!-- Upper-Left: Minimal Menu Button -->
+      <button class="nav-btn menu-btn" id="menuBtn" aria-label="Open Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="nav-svg">
+          <line x1="3" y1="7" x2="21" y2="7"></line>
+          <line x1="3" y1="17" x2="16" y2="17"></line>
+        </svg>
+      </button>
+
+      <!-- Genuinely Centered BEYOND Wordmark -->
+      <a href="#campaign" class="logo" id="brandLogo" aria-label="BEYOND Home">BEYOND</a>
+
+      <!-- Upper-Right: Minimal Search Button & Close Trigger -->
+      <div class="top-right">
+        <button class="nav-btn icon-btn" id="searchBtn" aria-label="Search catalog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="nav-svg">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="close-detail-btn" id="close" aria-label="Close detail view">
+          <span>CLOSE</span>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="3" x2="13" y2="13"></line>
+            <line x1="13" y1="3" x2="3" y2="13"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero / Stage Container -->
+    <div class="viewport-stage" id="viewportStage">
+
+      <!-- Dark Brushed Steel Clothing Rail Rod with Heavy Wall Brackets -->
+      <div class="rail" id="rail">
+        <div class="rail-bracket left" aria-hidden="true"></div>
+        <div class="rail-rod" aria-hidden="true">
+          <div class="rod-sheen"></div>
+        </div>
+        <div class="rail-bracket right" aria-hidden="true"></div>
+      </div>
+
+      <!-- Garments Stage on Metallic Rail -->
+      <div class="stage" id="stage" role="region" aria-label="Interactive Garment Rail"></div>
+
+      <!-- Hanging Colorway Swatch Tags (Detail View) -->
+      <div class="tags" id="tagsContainer" role="radiogroup" aria-label="Garment Colorways"></div>
+
+      <!-- Hero Campaign Editorial Info Overlay (Matching Reference 2) -->
+      <div class="home-ui" id="homeUi">
+        <div class="hero-info-left">
+          <span class="edition-tag" id="editionTag">COLLECTION 01 / 09 · DARK ARCHIVE</span>
+          <h1 class="hero-product-title" id="cap">HEAVYWEIGHT BOX TEE</h1>
+          <p class="hero-product-spec" id="capSpec">280GSM DROP-SHOULDER COMBED JERSEY</p>
+        </div>
+
+        <div class="hero-info-right">
+          <div class="hero-price-wrap">
+            <span class="hero-price-label">PRICE</span>
+            <div class="hero-price" id="heroPrice">$85</div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn-view-piece" id="avail" aria-label="View piece details">
+              <span>VIEW PIECE</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="hero-counter" id="heroCounter">01 / 09</div>
+        </div>
+      </div>
+
+      <!-- Interactive Drag Hint -->
+      <div class="hint" id="hint">
+        <span class="hint-arrow left">←</span>
+        <span class="hint-text">SLIDE ACROSS INDUSTRIAL RAIL</span>
+        <span class="hint-arrow right">→</span>
+      </div>
+
+      <!-- Detail UI Overlay (Product Spotlight & Inspection) -->
+      <div class="detail-ui" id="detailUi" aria-hidden="true">
+        <div class="detail-panel">
+          
+          <div class="namerow">
+            <button class="arrow" id="prev" aria-label="Previous piece">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 3L5 8l6 5"/>
+              </svg>
+            </button>
+
+            <div class="title-group">
+              <span class="detail-category" id="dcategory">ARCHIVAL OUTERWEAR</span>
+              <h2 class="name" id="dname">DISTRESSED MOTO JACKET</h2>
+              <div class="price-row">
+                <span class="price-main" id="dprice">₹42,000</span>
+                <span class="price-divider">·</span>
+                <span class="price-tagline" id="dtagline">Full-grain distressed cowhide & silver hardware</span>
+              </div>
+            </div>
+
+            <button class="arrow" id="next" aria-label="Next piece">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 3l6 5-6 5"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Description and Specs -->
+          <p class="detail-description" id="ddesc">
+            Engineered from 1.4mm vegetable-tanned Italian calfskin, hand-distressed along stress points for natural patina. Features heavy asymmetrical Japanese silver zips, dual interior welt pockets, and custom antique nickel buckles.
+          </p>
+
+          <!-- 3D Perspective Flip Toggle (FRONT / BACK) -->
+          <div class="view-controls">
+            <div class="seg" id="seg" data-view="front">
+              <span class="thumb"></span>
+              <button data-v="front" class="on" id="btnFront">FRONT</button>
+              <button data-v="back" id="btnBack">BACK</button>
+            </div>
+            <span class="colorname" id="cname">Vintage Onyx</span>
+          </div>
+
+          <!-- Size Selector -->
+          <div class="size-selector" id="sizeSelector" role="radiogroup" aria-label="Select Size">
+            <span class="size-label">SIZE</span>
+            <div class="size-buttons">
+              <button class="size-btn" data-size="S">S</button>
+              <button class="size-btn active" data-size="M">M</button>
+              <button class="size-btn" data-size="L">L</button>
+              <button class="size-btn" data-size="XL">XL</button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="detail-action-row">
+            <button class="btn-primary" id="detailAddToCart">
+              <span>ADD TO BAG</span>
+              <span class="btn-price-inline" id="btnPriceInline">₹42,000</span>
+            </button>
+            <button class="btn-secondary icon-btn-lg" id="detailWishlist" aria-label="Add to Wishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="detail-meta-specs">
+            <div class="spec-col">
+              <span class="spec-k">DELIVERY</span>
+              <span class="spec-v">EXPRESS WORLDWIDE (2-4 DAYS)</span>
+            </div>
+            <div class="spec-col">
+              <span class="spec-k">AUTHENTICITY</span>
+              <span class="spec-v">NFC VERIFIED · ARCHIVE NO.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Full Collection / Shop Grid View (Switchable or Scrollable) -->
+    <section class="shop-section" id="shopSection" aria-label="Collection Catalogue">
+      <div class="shop-header">
+        <div class="shop-title-wrap">
+          <span class="shop-sub">// ARCHIVAL COLLECTION</span>
+          <h2 class="shop-title">ALL PIECES</h2>
+        </div>
+
+        <div class="shop-filters">
+          <button class="filter-btn active" data-filter="all">ALL (09)</button>
+          <button class="filter-btn" data-filter="outerwear">OUTERWEAR</button>
+          <button class="filter-btn" data-filter="tops">TOPS & HOODIES</button>
+          <button class="filter-btn" data-filter="denim">DENIM</button>
+        </div>
+
+        <div class="shop-sort">
+          <label for="sortSelect" class="sort-label">SORT:</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="featured">FEATURED</option>
+            <option value="price-desc">PRICE: HIGH TO LOW</option>
+            <option value="price-asc">PRICE: LOW TO HIGH</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Rendered dynamically from manifest -->
+      </div>
+    </section>
+
+    <!-- Industrial Monochromatic Ticker Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="track" id="track"></div>
+    </div>
+
+    <!-- Fixed Bottom Navigation Bar (Matching Reference 2) -->
+    <nav class="bottom-nav" id="bottomNav" aria-label="Bottom Navigation">
+      <button class="b-nav-item active" data-target="home" id="bNavHome">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="b-nav-icon">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="b-nav-label">HOME</span>
+      </button>
+
+      <button class="b-nav-item" data-target="shop" id="bNavShop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="b-nav-icon">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span class="b-nav-label">SHOP</span>
+      </button>
+
+      <button class="b-nav-item" data-target="search" id="bNavSearch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="b-nav-icon">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span class="b-nav-label">SEARCH</span>
+      </button>
+
+      <button class="b-nav-item" data-target="saved" id="bNavSaved">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="b-nav-icon">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="b-nav-badge" id="bNavSavedBadge">0</span>
+        <span class="b-nav-label">SAVED</span>
+      </button>
+
+      <button class="b-nav-item" data-target="cart" id="bNavCart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="b-nav-icon">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="b-nav-badge" id="bNavCartBadge">0</span>
+        <span class="b-nav-label">CART</span>
+      </button>
+    </nav>
+
+    <!-- Slide-Over Drawers -->
+
+    <!-- 1. Search Drawer Modal -->
+    <div class="drawer" id="searchDrawer" aria-hidden="true">
+      <div class="drawer-backdrop" id="searchBackdrop"></div>
+      <div class="drawer-panel search-panel">
+        <div class="drawer-header">
+          <span class="drawer-title">CATALOGUE SEARCH</span>
+          <button class="drawer-close" id="searchClose" aria-label="Close search">✕</button>
+        </div>
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon-field">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="SEARCH BY SILHOUETTE, FABRIC, OR PRICE..." autocomplete="off">
+          <button class="clear-search" id="clearSearch" style="display:none;">CLEAR</button>
+        </div>
+        <div class="search-results" id="searchResults">
+          <!-- Dynamic live results -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Saved Items (Wishlist) Drawer -->
+    <div class="drawer" id="savedDrawer" aria-hidden="true">
+      <div class="drawer-backdrop" id="savedBackdrop"></div>
+      <div class="drawer-panel">
+        <div class="drawer-header">
+          <span class="drawer-title">SAVED PIECES (<span id="savedCountHeader">0</span>)</span>
+          <button class="drawer-close" id="savedClose" aria-label="Close wishlist">✕</button>
+        </div>
+        <div class="drawer-body" id="savedItemsList">
+          <!-- Dynamic saved items -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Shopping Cart Drawer -->
+    <div class="drawer" id="cartDrawer" aria-hidden="true">
+      <div class="drawer-backdrop" id="cartBackdrop"></div>
+      <div class="drawer-panel cart-panel">
+        <div class="drawer-header">
+          <span class="drawer-title">SHOPPING BAG (<span id="cartCountHeader">0</span>)</span>
+          <button class="drawer-close" id="cartClose" aria-label="Close cart">✕</button>
+        </div>
+        <div class="drawer-body" id="cartItemsList">
+          <!-- Dynamic cart items -->
+        </div>
+        <div class="cart-footer" id="cartFooter">
+          <div class="cart-subtotal-row">
+            <span class="subtotal-k">SUBTOTAL</span>
+            <span class="subtotal-v" id="cartSubtotal">₹0</span>
+          </div>
+          <p class="shipping-note">COMPLIMENTARY GLOBAL EXPRESS SHIPPING & DUTIES INCLUDED</p>
+          <button class="btn-primary checkout-btn" id="btnCheckout">PROCEED TO CHECKOUT</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Navigation Menu Drawer -->
+    <div class="drawer" id="menuDrawer" aria-hidden="true">
+      <div class="drawer-backdrop" id="menuBackdrop"></div>
+      <div class="drawer-panel menu-panel">
+        <div class="drawer-header">
+          <span class="drawer-title">BEYOND / ARCHIVE</span>
+          <button class="drawer-close" id="menuClose" aria-label="Close menu">✕</button>
+        </div>
+        <div class="menu-nav-links">
+          <a href="#campaign" class="menu-link active" data-dest="home" id="menuCampaignLink">
+            <span class="menu-idx">01</span>
+            <span class="menu-name">THE CAMPAIGN</span>
+            <span class="menu-sub">Hero interactive industrial rail</span>
+          </a>
+          <a href="#shop" class="menu-link" data-dest="shop" id="menuCollectionLink">
+            <span class="menu-idx">02</span>
+            <span class="menu-name">COLLECTION</span>
+            <span class="menu-sub">All 09 dark luxury pieces</span>
+          </a>
+          <button type="button" class="menu-link menu-action-link" id="menuSavedBtn">
+            <span class="menu-idx">03</span>
+            <span class="menu-name">SAVED PIECES</span>
+            <span class="menu-sub">Wishlist (<span id="menuSavedBadge">0</span>)</span>
+          </button>
+          <button type="button" class="menu-link menu-action-link" id="menuBagBtn">
+            <span class="menu-idx">04</span>
+            <span class="menu-name">SHOPPING BAG</span>
+            <span class="menu-sub">Bag (<span id="menuBagBadge">0</span>)</span>
+          </button>
+          <a href="#archive" class="menu-link" data-dest="archive" id="menuArchiveLink">
+            <span class="menu-idx">05</span>
+            <span class="menu-name">ARCHIVE</span>
+            <span class="menu-sub">Past runway and studio runs</span>
+          </a>
+          <a href="#about" class="menu-link" data-dest="about">
+            <span class="menu-idx">06</span>
+            <span class="menu-name">STUDIO PHILOSOPHY</span>
+            <span class="menu-sub">Architectural minimalism & form</span>
+          </a>
+        </div>
+        <div class="menu-footer">
+          <span class="menu-brand-footer">BEYOND STREETWEAR © 2026</span>
+          <span class="menu-coords">BERLIN — TOKYO — NYC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Overlay -->
+    <div class="toast" id="toast" aria-live="polite"></div>
+
+    <!-- Dark Luxury Streetwear Loader Screen -->
+    <div class="loader" id="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">BEYOND</div>
+        <div class="loader-bar-bg">
+          <div class="loader-bar-fill" id="loaderProgress"></div>
+        </div>
+        <div class="loader-status" id="loaderStatus">CALIBRATING ARCHIVE RUN...</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "slug": "denim-trucker",
+  "name": "WASHED SELVEDGE TRUCKER",
+  "price": "$210",
+  "tagline": "14oz vintage-washed Japanese denim",
+  "hook": {
+    "x": 0.5,
+    "y": 0.09
+  },
+  "colors": [
+    {
+      "id": "washed_blue",
+      "name": "Washed Blue",
+      "hex": "#a6c4df",
+      "dir": "washed_blue",
+      "front": "/products/denim-trucker/washed_blue/front.webp",
+      "frontRail": "/products/denim-trucker/washed_blue/front_rail.webp",
+      "side": "/products/denim-trucker/washed_blue/side.webp",
+      "sideRail": "/products/denim-trucker/washed_blue/side_rail.webp",
+      "back": "/products/denim-trucker/washed_blue/back.webp",
+      "backRail": "/products/denim-trucker/washed_blue/back_rail.webp"
+    },
+    {
+      "id": "ecru",
+      "name": "Ecru",
+      "hex": "#f3eee5",
+      "dir": "ecru",
+      "front": "/products/denim-trucker/ecru/front.webp",
+      "frontRail": "/products/denim-trucker/ecru/front_rail.webp",
+      "side": "/products/denim-trucker/ecru/side.webp",
+      "sideRail": "/products/denim-trucker/ecru/side_rail.webp",
+      "back": "/products/denim-trucker/ecru/back.webp",
+      "backRail": "/products/denim-trucker/ecru/back_rail.webp"
+    },
+    {
+      "id": "sage_wash",
+      "name": "Sage Wash",
+      "hex": "#bacbb5",
+      "dir": "sage_wash",
+      "front": "/products/denim-trucker/sage_wash/front.webp",
+      "frontRail": "/products/denim-trucker/sage_wash/front_rail.webp",
+      "side": "/products/denim-trucker/sage_wash/side.webp",
+      "sideRail": "/products/denim-trucker/sage_wash/side_rail.webp",
+      "back": "/products/denim-trucker/sage_wash/back.webp",
+      "backRail": "/products/denim-trucker/sage_wash/back_rail.webp"
+    }
+  ],
+  "description": "14oz Japanese redline selvedge denim treated with a vintage stonewash. Antique brass hardware, pleated front placket, and dual flap chest pockets."
+}

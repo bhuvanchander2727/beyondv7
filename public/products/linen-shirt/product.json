@@ -1,0 +1,49 @@
+{
+  "slug": "linen-shirt",
+  "name": "RAW OVERSIZED RESORT SHIRT",
+  "price": "$145",
+  "tagline": "Breathable washed European linen",
+  "hook": {
+    "x": 0.5,
+    "y": 0.09
+  },
+  "colors": [
+    {
+      "id": "ivory",
+      "name": "Ivory",
+      "hex": "#f8f4ec",
+      "dir": "ivory",
+      "front": "/products/linen-shirt/ivory/front.webp",
+      "frontRail": "/products/linen-shirt/ivory/front_rail.webp",
+      "side": "/products/linen-shirt/ivory/side.webp",
+      "sideRail": "/products/linen-shirt/ivory/side_rail.webp",
+      "back": "/products/linen-shirt/ivory/back.webp",
+      "backRail": "/products/linen-shirt/ivory/back_rail.webp"
+    },
+    {
+      "id": "sky",
+      "name": "Sky",
+      "hex": "#c5d7e7",
+      "dir": "sky",
+      "front": "/products/linen-shirt/sky/front.webp",
+      "frontRail": "/products/linen-shirt/sky/front_rail.webp",
+      "side": "/products/linen-shirt/sky/side.webp",
+      "sideRail": "/products/linen-shirt/sky/side_rail.webp",
+      "back": "/products/linen-shirt/sky/back.webp",
+      "backRail": "/products/linen-shirt/sky/back_rail.webp"
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "hex": "#f3e4b2",
+      "dir": "butter",
+      "front": "/products/linen-shirt/butter/front.webp",
+      "frontRail": "/products/linen-shirt/butter/front_rail.webp",
+      "side": "/products/linen-shirt/butter/side.webp",
+      "sideRail": "/products/linen-shirt/butter/side_rail.webp",
+      "back": "/products/linen-shirt/butter/back.webp",
+      "backRail": "/products/linen-shirt/butter/back_rail.webp"
+    }
+  ],
+  "description": "Relaxed Cuban collar silhouette tailored from 180gsm pre-washed European flax linen. Mother-of-pearl buttons, split back yoke, and raw-edge cuff details."
+}

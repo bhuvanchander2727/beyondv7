@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "soft-logo-tee",
+    "name": "HEAVYWEIGHT BOX TEE",
+    "price": "$85",
+    "priceUsd": "$85",
+    "tagline": "280gsm drop-shoulder combed jersey",
+    "category": "tops",
+    "edition": "01 / 09",
+    "badge": "HERO PIECE",
+    "jsonUrl": "/products/soft-logo-tee/product.json"
+  },
+  {
+    "slug": "moto-jacket",
+    "name": "DISTRESSED MOTO JACKET",
+    "price": "$480",
+    "priceUsd": "$480",
+    "tagline": "Full-grain distressed cowhide & silver hardware",
+    "category": "outerwear",
+    "edition": "02 / 09",
+    "badge": "CORE",
+    "jsonUrl": "/products/moto-jacket/product.json"
+  },
+  {
+    "slug": "varsity-jacket",
+    "name": "ARCHIVE VARSITY JACKET",
+    "price": "$280",
+    "priceUsd": "$280",
+    "tagline": "Italian wool body & vintage grain leather",
+    "category": "outerwear",
+    "edition": "03 / 09",
+    "badge": "CORE",
+    "jsonUrl": "/products/varsity-jacket/product.json"
+  },
+  {
+    "slug": "bomber-jacket",
+    "name": "MA-1 TACTICAL BOMBER",
+    "price": "$240",
+    "priceUsd": "$240",
+    "tagline": "Heavy satin finish nylon with rib trims",
+    "category": "outerwear",
+    "edition": "04 / 09",
+    "badge": "LIMITED",
+    "jsonUrl": "/products/bomber-jacket/product.json"
+  },
+  {
+    "slug": "denim-trucker",
+    "name": "WASHED SELVEDGE TRUCKER",
+    "price": "$210",
+    "priceUsd": "$210",
+    "tagline": "14oz vintage-washed Japanese denim",
+    "category": "denim",
+    "edition": "05 / 09",
+    "badge": "RESTOCKED",
+    "jsonUrl": "/products/denim-trucker/product.json"
+  },
+  {
+    "slug": "oversized-hoodie",
+    "name": "BOX CUT HEAVY HOODIE",
+    "price": "$165",
+    "priceUsd": "$165",
+    "tagline": "520gsm combed French terry",
+    "category": "tops",
+    "edition": "06 / 09",
+    "badge": "CORE",
+    "jsonUrl": "/products/oversized-hoodie/product.json"
+  },
+  {
+    "slug": "linen-shirt",
+    "name": "RAW OVERSIZED RESORT SHIRT",
+    "price": "$145",
+    "priceUsd": "$145",
+    "tagline": "Breathable washed European linen",
+    "category": "tops",
+    "edition": "07 / 09",
+    "badge": "SUMMER",
+    "jsonUrl": "/products/linen-shirt/product.json"
+  },
+  {
+    "slug": "long-sleeve-tee",
+    "name": "TACTICAL RIB LONGSLEEVE",
+    "price": "$110",
+    "priceUsd": "$110",
+    "tagline": "Ribbed cuffs with sleeve embroidery",
+    "category": "tops",
+    "edition": "08 / 09",
+    "badge": "NEW",
+    "jsonUrl": "/products/long-sleeve-tee/product.json"
+  },
+  {
+    "slug": "everyday-tank",
+    "name": "DROP-NEEDLE RIB TANK",
+    "price": "$65",
+    "priceUsd": "$65",
+    "tagline": "Wide rib knit with curved raw hem",
+    "category": "tops",
+    "edition": "09 / 09",
+    "badge": "CORE",
+    "jsonUrl": "/products/everyday-tank/product.json"
+  }
+]

@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#f6efe6">
+<title>BEYOND — Soft Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+@property --c{syntax:'<color>';inherits:true;initial-value:#eee}
+@property --d{syntax:'<color>';inherits:true;initial-value:#bbb}
+@property --p{syntax:'<color>';inherits:true;initial-value:#777}
+
+:root{
+  --ink:#2b2522;
+  --ink-soft:#8a7d74;
+  --cream:#fbf6ee;
+  --blush:#f3d3cd;
+  --peach:#f7dcc3;
+  --sage:#d3e0cb;
+  --sky:#d3e0ee;
+  --lilac:#ddd3ee;
+  --ease:cubic-bezier(.22,.9,.24,1);
+  --serif:'Instrument Serif','Times New Roman',serif;
+  --sans:'Archivo','Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:var(--cream);color:var(--ink);font-family:var(--sans);overflow:hidden;overscroll-behavior:none}
+body{display:flex;justify-content:center;background:
+  radial-gradient(900px 600px at 15% 10%,#f7dcd4 0,transparent 60%),
+  radial-gradient(800px 600px at 90% 90%,#dbe6d6 0,transparent 60%),#f6efe6}
+
+/* ───────── app shell (mobile first, centred on desktop) ───────── */
+.app{position:relative;width:100%;max-width:430px;height:100vh;height:100dvh;overflow:hidden;
+  background:linear-gradient(180deg,#fcf8f1 0%,#f6ece6 48%,#eef0e8 100%);
+  touch-action:none;user-select:none;-webkit-user-select:none;isolation:isolate}
+@media(min-width:520px){.app{box-shadow:0 0 0 1px rgba(60,40,30,.06),0 40px 120px rgba(120,90,70,.18)}}
+
+/* aesthetic backdrop */
+.bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.75;will-change:transform}
+.b1{width:300px;height:300px;left:-90px;top:6%;background:radial-gradient(circle at 40% 40%,#f6cfc8,#f6cfc800 70%);animation:drift1 16s ease-in-out infinite alternate}
+.b2{width:340px;height:340px;right:-140px;top:30%;background:radial-gradient(circle at 50% 50%,#d7e3f0,#d7e3f000 70%);animation:drift2 19s ease-in-out infinite alternate}
+.b3{width:320px;height:320px;left:10%;bottom:-120px;background:radial-gradient(circle at 50% 50%,#dbe7cf,#dbe7cf00 70%);animation:drift1 22s ease-in-out infinite alternate-reverse}
+.b4{width:220px;height:220px;right:6%;top:-70px;background:radial-gradient(circle at 50% 50%,#f8e3b9,#f8e3b900 70%);animation:drift2 14s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(40px,30px) scale(1.12)}}
+@keyframes drift2{to{transform:translate(-36px,24px) scale(1.1)}}
+.arch{position:absolute;left:50%;top:var(--archTop,12%);width:80%;bottom:0;transform:translateX(-50%);-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 92%);mask-image:linear-gradient(180deg,#000 55%,transparent 92%);
+  border-radius:999px 999px 0 0;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.08));
+  border:1px solid rgba(255,255,255,.7);box-shadow:inset 0 0 60px rgba(255,255,255,.5);transition:transform 1s var(--ease),opacity .8s}
+.detail .arch{transform:translateX(-50%) scale(1.08) translateY(-2%)}
+.sun{position:absolute;left:50%;top:var(--sunTop,22%);width:150px;height:150px;margin-left:-75px;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#fff3df,#f8d9c0 55%,#f5c9c0 100%);opacity:.55;filter:blur(2px);
+  transition:transform 1.1s var(--ease)}
+.detail .sun{transform:translateY(40px) scale(1.25)}
+.bigword{position:absolute;left:0;right:0;bottom:11%;text-align:center;font-family:var(--serif);font-style:italic;
+  font-size:clamp(88px,30vw,128px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(120,95,80,.16);letter-spacing:-.01em;
+  transition:opacity .8s,transform 1s var(--ease)}
+.detail .bigword{opacity:.0;transform:translateY(30px)}
+.grain{position:absolute;inset:-50%;opacity:.16;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .36  0 0 0 0 .3  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* ───────── top bar ───────── */
+.top{position:absolute;z-index:30;left:0;right:0;top:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:calc(env(safe-area-inset-top) + 18px) 20px 0}
+.top a,.top button{font:600 9.5px/1 var(--sans);letter-spacing:.22em;color:var(--ink);text-decoration:none;background:none;border:0;cursor:pointer;opacity:.75;transition:opacity .5s,transform .6s var(--ease)}
+.top .l{justify-self:start}.top .r{justify-self:end}
+.logo{font-family:var(--serif);font-size:25px;letter-spacing:.34em;padding-left:.34em;color:var(--ink);line-height:1}
+.close{position:absolute;right:20px;top:calc(env(safe-area-inset-top) + 18px);opacity:0!important;pointer-events:none;transform:translateY(-6px)}
+.detail .close{opacity:.85!important;pointer-events:auto;transform:none}
+.detail .top .l,.detail .top .r{opacity:0;pointer-events:none;transform:translateY(-6px)}
+
+/* ───────── rail (brushed steel rod, like the reference) ───────── */
+.rail{position:absolute;left:12px;right:12px;top:calc(var(--railY) - 1px);height:4px;border-radius:3px;z-index:2;
+  background:linear-gradient(180deg,#ffffff 0,#d3d6da 35%,#8c9298 68%,#e9ebee 100%);
+  box-shadow:0 6px 7px -2px rgba(90,70,60,.22),0 14px 18px -8px rgba(90,70,60,.14);
+  transition:opacity .7s,transform .9s var(--ease)}
+.rail::before,.rail::after{content:"";position:absolute;top:-8px;width:9px;height:20px;border-radius:2px;
+  background:linear-gradient(90deg,#fdfdfd,#c9cdd2 55%,#9aa0a6);box-shadow:0 3px 5px rgba(90,70,60,.25)}
+.rail::before{left:-10px}.rail::after{right:-10px;transform:scaleX(-1)}
+.detail .rail{opacity:0;transform:translateY(-18px)}
+
+/* ───────── garments ───────── */
+.stage{position:absolute;inset:0}
+.g{position:absolute;left:0;top:0;width:200px;height:260px;transform-origin:100px 0;will-change:transform,filter,opacity;
+  transition:transform .85s var(--ease),filter .7s var(--ease),opacity .7s var(--ease),--c .6s,--d .6s,--p .6s;
+  pointer-events:none}
+.g .art{position:absolute;inset:0;transform-origin:100px 4px;animation:sway 5.6s ease-in-out infinite alternate;
+  filter:drop-shadow(-4px 8px 7px rgba(110,85,70,.16));transition:filter .8s var(--ease)}
+.g.sel .art{filter:drop-shadow(-22px 18px 14px rgba(110,85,70,.2))}
+.g.focus .art{filter:drop-shadow(-12px 12px 10px rgba(110,85,70,.18))}
+.detail .g .art{animation-duration:7s}
+@keyframes sway{from{transform:rotate(-.9deg)}to{transform:rotate(.9deg)}}
+.g .flip{position:absolute;inset:0}
+.g .face{position:absolute;inset:0;transform-origin:100px 50%}
+/* on the rail: side view. selected: turns to face you */
+.g .face.side{transform:scaleX(1);transition:transform .4s cubic-bezier(.2,.7,.3,1) .26s}
+.g .face.front{transform:scaleX(0);transition:transform .28s cubic-bezier(.6,0,.9,.5)}
+.g.front .face.front{transform:scaleX(1);transition:transform .45s cubic-bezier(.15,.75,.3,1) .24s}
+.g.front .face.side{transform:scaleX(0);transition:transform .26s cubic-bezier(.6,0,.9,.5)}
+.g .pt.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:.02em}
+.g.flipping .flip{animation:flip .52s ease-in-out}
+@keyframes flip{0%{transform:perspective(700px) rotateY(0)}46%{transform:perspective(700px) rotateY(88deg)}54%{transform:perspective(700px) rotateY(-88deg)}100%{transform:perspective(700px) rotateY(0)}}
+.g svg{position:absolute;inset:0;overflow:visible;pointer-events:none}
+.g svg *{pointer-events:visiblePainted}
+.g .pt{font-family:var(--sans);font-weight:800;fill:var(--p);text-anchor:middle;letter-spacing:.16em}
+.g .base{fill:var(--c)}
+.g .dk{fill:var(--d)}
+.g .ln{stroke:var(--d)}
+.g.intro{opacity:0!important}
+
+/* hang tags (colourways) */
+.tags{position:absolute;left:0;top:0;opacity:0;transition:opacity .6s .15s;pointer-events:none}
+.sel .tags{opacity:1;pointer-events:auto}
+.tag{position:absolute;width:17px;height:44px;border:0;border-radius:4px 4px 5px 5px;cursor:pointer;transform-origin:50% -80px;
+  box-shadow:0 5px 8px rgba(100,80,65,.2),inset 0 0 0 1px rgba(255,255,255,.55);animation:tagsway 4.2s ease-in-out infinite alternate;transition:margin .45s var(--ease),box-shadow .3s}
+.tag::before{content:"";position:absolute;left:50%;bottom:100%;width:1px;height:420px;background:linear-gradient(0deg,rgba(90,70,60,.55),rgba(90,70,60,0));transform:translateX(-50%)}
+.tag::after{content:"";position:absolute;left:50%;top:5px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#fbf6ee;box-shadow:0 0 0 .5px rgba(0,0,0,.2) inset}
+.tag span{position:absolute;inset:-14px -6px -6px}
+.tag.on{margin-top:12px;box-shadow:0 8px 12px rgba(100,80,65,.28),0 0 0 2px #fbf6ee,0 0 0 3px var(--ink)}
+@keyframes tagsway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+
+/* ───────── home UI ───────── */
+.home-ui{position:absolute;left:0;right:0;top:var(--capY);z-index:10;display:flex;flex-direction:column;align-items:center;gap:14px;
+  transition:opacity .55s,transform .8s var(--ease),filter .55s}
+.detail .home-ui{opacity:0;pointer-events:none;transform:translateY(16px);filter:blur(6px)}
+.cap{font:500 9.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);min-height:10px}
+.cap.in{animation:capIn .55s var(--ease)}
+@keyframes capIn{from{opacity:0;filter:blur(6px);transform:translateY(5px)}to{opacity:1;filter:none;transform:none}}
+.pill{display:inline-block;font:700 9.5px/1 var(--sans);letter-spacing:.2em;color:var(--ink);text-decoration:none;border:1px solid rgba(43,37,34,.65);
+  padding:11px 20px;border-radius:99px;background:rgba(255,255,255,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;transition:background .3s,color .3s,transform .3s}
+.pill:active{background:var(--ink);color:var(--cream);transform:scale(.97)}
+.tagline{font-family:var(--serif);font-style:italic;font-size:17px;color:rgba(43,37,34,.7);margin-top:10px;letter-spacing:.01em}
+.hint{position:absolute;left:0;right:0;z-index:10;bottom:calc(46px + env(safe-area-inset-bottom) + 20px);text-align:center;font:500 8.5px/1 var(--sans);letter-spacing:.26em;
+  text-transform:uppercase;color:var(--ink-soft);transition:opacity .6s}
+.hint i{display:inline-block;font-style:normal;animation:nudge 1.6s ease-in-out infinite alternate}
+.hint i:last-child{animation-direction:alternate-reverse}
+@keyframes nudge{to{transform:translateX(4px)}}
+.detail .hint,.touched .hint{opacity:0}
+
+/* ───────── detail UI ───────── */
+.detail-ui{position:absolute;left:0;right:0;top:var(--dCapY);z-index:12;display:flex;flex-direction:column;align-items:center;gap:15px;
+  opacity:0;pointer-events:none;transform:translateY(14px);filter:blur(6px);transition:opacity .6s,transform .8s var(--ease),filter .6s}
+.detail .detail-ui{opacity:1;pointer-events:auto;transform:none;filter:none;transition-delay:.25s}
+.namerow{width:100%;display:flex;align-items:center;justify-content:space-between;padding:0 18px;gap:8px}
+.name{font:850 16px/1.1 var(--sans);font-stretch:112%;letter-spacing:.015em;text-transform:uppercase;text-align:center;color:var(--ink);flex:1}
+.name.in{animation:capIn .6s var(--ease)}
+.arrow{width:34px;height:34px;border-radius:50%;border:1px solid rgba(43,37,34,.5);background:rgba(255,255,255,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:grid;place-items:center;cursor:pointer;color:var(--ink);transition:background .25s,color .25s,transform .25s}
+.arrow:active{background:var(--ink);color:var(--cream);transform:scale(.92)}
+.arrow svg{width:14px;height:14px}
+.seg{position:relative;display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(43,37,34,.55);border-radius:99px;padding:3px;background:rgba(255,255,255,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.seg .thumb{position:absolute;left:3px;top:3px;bottom:3px;width:calc(50% - 3px);border-radius:99px;background:var(--ink);transition:transform .5s var(--ease)}
+.seg[data-view=back] .thumb{transform:translateX(100%)}
+.seg button{position:relative;z-index:1;font:700 8.5px/1 var(--sans);letter-spacing:.2em;padding:9px 20px;border:0;background:none;color:var(--ink);cursor:pointer;transition:color .4s}
+.seg button.on{color:var(--cream)}
+.link{font:600 9px/1 var(--sans);letter-spacing:.2em;color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(43,37,34,.5);padding-bottom:4px}
+.colorname{font-family:var(--serif);font-style:italic;font-size:15px;color:rgba(43,37,34,.65);margin-top:-2px}
+
+/* ───────── marquee ───────── */
+.marquee{position:absolute;z-index:20;left:-4%;right:-4%;bottom:0;height:calc(40px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);
+  background:linear-gradient(90deg,#f5cdc7,#f8e1bd,#d5e3cc,#d0dcec,#ddd2ee);overflow:hidden;display:flex;align-items:center;
+  box-shadow:0 -10px 30px rgba(150,110,90,.12);transform:rotate(-1.4deg) translateY(6px);transform-origin:left bottom}
+.marquee .track{display:flex;white-space:nowrap;animation:marq 24s linear infinite;will-change:transform}
+.marquee span{font:700 10px/1 var(--sans);letter-spacing:.24em;color:var(--ink);padding-right:2.2em}
+.marquee span b{font-weight:400;color:rgba(43,37,34,.45);padding-left:2.2em}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+@media (prefers-reduced-motion:reduce){.g .art,.tag,.blob,.marquee .track{animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- shared fabric shading -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".26"/><stop offset=".38" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#3a2a22" stop-opacity=".12"/>
+    </linearGradient>
+    <linearGradient id="gSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3a2a22" stop-opacity=".13"/><stop offset=".2" stop-color="#3a2a22" stop-opacity="0"/><stop offset=".78" stop-color="#3a2a22" stop-opacity="0"/><stop offset="1" stop-color="#3a2a22" stop-opacity=".16"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<main class="app intro" id="app" aria-label="BEYOND hero">
+  <div class="bg" aria-hidden="true">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div>
+    <div class="arch"></div><div class="sun"></div>
+    <div class="bigword">Beyond</div>
+    <div class="grain"></div>
+  </div>
+
+  <header class="top">
+    <a class="l" href="#about">ABOUT</a>
+    <div class="logo">BEYOND</div>
+    <a class="r" href="#contact">CONTACT</a>
+    <button class="close" id="close" aria-label="Close">CLOSE ✕</button>
+  </header>
+
+  <div class="rail" id="rail"></div>
+  <div class="stage" id="stage"></div>
+
+  <div class="home-ui" id="homeUi">
+    <p class="cap" id="cap"></p>
+    <a class="pill" href="#shop" id="avail">SEE AVAILABILITY</a>
+    <p class="tagline">the soft collection · season 01</p>
+  </div>
+  <p class="hint" id="hint"><i>←</i>&nbsp; slide across the rail &nbsp;<i>→</i></p>
+
+  <div class="detail-ui" id="detailUi">
+    <div class="namerow">
+      <button class="arrow" id="prev" aria-label="Previous"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8H3M7 4L3 8l4 4"/></svg></button>
+      <h2 class="name" id="dname"></h2>
+      <button class="arrow" id="next" aria-label="Next"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+    </div>
+    <div class="seg" id="seg" data-view="front"><span class="thumb"></span><button data-v="front" class="on">FRONT</button><button data-v="back">BACK</button></div>
+    <a class="link" href="#shop">SEE AVAILABILITY ↗</a>
+    <p class="colorname" id="cname"></p>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+</main>
+
+<script>
+/* ═════════════ garment art ═════════════ */
+const T=(x,y,s,t)=>`<text class="pt" x="${x}" y="${y}" font-size="${s}">${t}</text>`;
+const sun=(cx,cy,r)=>`<g><path d="M${cx-r} ${cy} A${r} ${r} 0 0 1 ${cx+r} ${cy} Z" fill="var(--p)"/><path d="M${cx-r*1.6} ${cy+3.5} H${cx+r*1.6}" stroke="var(--p)" stroke-width="1.3"/><path d="M${cx-r*1.15} ${cy+7.5} H${cx+r*1.15}" stroke="var(--p)" stroke-width="1" opacity=".55"/></g>`;
+const HANGER=`<g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M100 32 V14 Q100 2 108 2 Q116 2 116 9" stroke="#b9bec4" stroke-width="1.9"/><path d="M42 60 L100 31 L158 60" stroke="#58392c" stroke-width="4.2"/></g>`;
+const FOLDS=`<g fill="none" stroke="var(--d)" stroke-linecap="round" opacity=".13"><path d="M72 128 Q79 178 68 232" stroke-width="3.2"/><path d="M130 140 Q123 190 133 234" stroke-width="2.6"/><path d="M100 150 Q104 190 98 236" stroke-width="2" opacity=".6"/></g>`;
+const wrap=(body,details,folds=true)=>`<svg viewBox="0 0 200 260">${HANGER}
+  <path class="base" d="${body}"/>${folds?FOLDS:''}
+  <path d="${body}" fill="url(#gShade)"/><path d="${body}" fill="url(#gSide)"/>
+  ${details}
+  <path d="${body}" fill="none" stroke="var(--d)" stroke-width=".9" opacity=".55" stroke-linejoin="round"/></svg>`;
+const stitch=(d,o=.35)=>`<path d="${d}" fill="none" stroke="var(--d)" stroke-width=".9" stroke-dasharray="2.4 2" opacity="${o}"/>`;
+
+function tee(b){
+  const n=b?60:77;
+  const body=`M78 50 Q100 ${n} 122 50 L160 62 L188 110 L158 124 L150 108 L150 238 Q100 245 50 238 L50 108 L42 124 L12 110 L40 62 Z`;
+  const d=`<path class="dk" d="M78 50 Q100 ${n} 122 50 L119 54 Q100 ${b?66:84} 81 54 Z" opacity=".5"/>`+
+    stitch('M15 104 L45 118')+stitch('M185 104 L155 118')+stitch('M54 230 Q100 236 146 230')+
+    (b?T(100,106,21,'BEYOND')+T(100,118,4.6,'THE SOFT COLLECTION'):T(100,100,14,'BEYOND')+T(100,110.5,4.4,'SOFT SEASON · 01'));
+  return wrap(body,d);
+}
+function shirt(b){
+  const body=`M80 50 L100 ${b?56:62} L120 50 L158 64 L176 200 L154 204 L148 118 L148 240 Q100 246 52 240 L52 118 L46 204 L24 200 L42 64 Z`;
+  let d='';
+  if(!b){
+    d+=`<path class="base" d="M80 50 L100 62 L90 77 L70 58 Z" stroke="var(--d)" stroke-width=".8"/><path class="base" d="M120 50 L100 62 L110 77 L130 58 Z" stroke="var(--d)" stroke-width=".8"/>
+    <path d="M80 50 L100 62 L90 77 L70 58 Z M120 50 L100 62 L110 77 L130 58 Z" fill="url(#gShade)"/>
+    <path d="M100 62 V240" stroke="var(--d)" stroke-width=".9" opacity=".45"/>`+
+    [90,120,150,180,210].map(y=>`<circle cx="100" cy="${y}" r="1.8" fill="var(--d)" opacity=".75"/>`).join('')+
+    `<path d="M114 98 H136 V122 L125 127 L114 122 Z" fill="none" stroke="var(--d)" stroke-width=".9" opacity=".5"/>`+
+    T(125,112,3.4,'BEYOND');
+  }else{
+    d+=`<path class="dk" d="M80 50 Q100 58 120 50 L120 55 Q100 64 80 55 Z" opacity=".5"/><path d="M52 84 Q100 96 148 84" fill="none" stroke="var(--d)" stroke-width=".9" opacity=".45"/>
+    <path d="M100 96 V240" stroke="var(--d)" stroke-width="1.4" opacity=".18"/>`+T(100,150,13,'BEYOND')+T(100,161,4,'SOFT SEASON · 01');
+  }
+  d+=`<path class="dk" d="M154 204 L176 200 L175 187 L153 191 Z" opacity=".28"/><path class="dk" d="M46 204 L24 200 L25 187 L47 191 Z" opacity=".28"/>`;
+  return wrap(body,d);
+}
+function bomber(b){
+  const body=`M76 50 L100 ${b?56:60} L124 50 L158 64 L174 198 L152 202 L148 122 L148 224 L52 224 L52 122 L48 202 L26 198 L42 64 Z`;
+  let d=`<path class="dk" d="M74 49 Q100 40 126 49 L124 58 Q100 50 76 58 Z" opacity=".55"/>
+  <path class="dk" d="M52 224 H148 V241 Q100 247 52 241 Z" opacity=".38"/><path d="${Array.from({length:13},(_,i)=>`M${58+i*7} 226 V242`).join(' ')}" stroke="var(--d)" stroke-width=".8" opacity=".35"/>
+  <path class="dk" d="M152 202 L174 198 L172 182 L150 186 Z" opacity=".38"/><path class="dk" d="M48 202 L26 198 L28 182 L50 186 Z" opacity=".38"/>`;
+  if(!b){
+    d+=`<path d="M100 58 V224" stroke="var(--d)" stroke-width="1.5" opacity=".6"/><rect x="97.5" y="62" width="5" height="9" rx="1.5" fill="var(--d)" opacity=".8"/>
+    <path d="M63 168 L71 194 M137 168 L129 194" stroke="var(--d)" stroke-width="1" opacity=".5" fill="none"/>
+    <circle cx="124" cy="92" r="8" fill="var(--p)" opacity=".9"/>`+T(124,95.2,9,'B').replace('class="pt"','class="pt" style="fill:var(--c);letter-spacing:0"');
+  }else{
+    d+=`<path d="M100 60 V224" stroke="var(--d)" stroke-width="1" opacity=".16"/>`+T(100,118,17,'BEYOND')+sun(100,140,10)+T(100,162,4.4,'SOFT SEASON CLUB');
+  }
+  return wrap(body,d);
+}
+function hoodie(b){
+  const body=`M72 54 L40 66 L26 196 L50 200 L54 122 L54 238 Q100 246 146 238 L146 122 L150 200 L174 196 L160 66 L128 54 Q100 ${b?62:74} 72 54 Z`;
+  const hood=b?
+   `<path class="base" d="M66 58 Q58 22 100 20 Q142 22 134 58 Q100 70 66 58 Z"/><path d="M66 58 Q58 22 100 20 Q142 22 134 58 Q100 70 66 58 Z" fill="url(#gShade)"/><path d="M100 22 V64" stroke="var(--d)" stroke-width=".9" opacity=".45"/>`:
+   `<path class="base" d="M66 58 Q58 22 100 20 Q142 22 134 58 Q100 92 66 58 Z"/><path class="dk" d="M77 56 Q100 86 123 56 Q122 34 100 32 Q78 34 77 56 Z" opacity=".42"/><path d="M66 58 Q58 22 100 20 Q142 22 134 58 Q100 92 66 58 Z" fill="url(#gShade)"/>`;
+  let d=hood+`<path class="dk" d="M54 226 Q100 233 146 226 V238 Q100 246 54 238 Z" opacity=".3"/><path class="dk" d="M50 200 L26 196 L28 182 L52 186 Z" opacity=".3"/><path class="dk" d="M150 200 L174 196 L172 182 L148 186 Z" opacity=".3"/>`;
+  if(!b){
+    d+=`<path d="M92 72 L90 112 M108 72 L110 112" stroke="var(--d)" stroke-width="2" stroke-linecap="round" opacity=".7"/><circle cx="90" cy="114" r="2.2" fill="var(--d)"/><circle cx="110" cy="114" r="2.2" fill="var(--d)"/>
+    <path d="M64 176 H136 L144 218 H56 Z" fill="var(--d)" opacity=".12" stroke="var(--d)" stroke-width=".9" stroke-opacity=".45"/>`+T(100,142,9,'BEYOND');
+  }else d+=T(100,120,19,'BEYOND')+sun(100,146,10);
+  return wrap(body,d);
+}
+function tank(b){
+  const body=`M72 48 Q100 ${b?62:84} 128 48 L143 52 L146 90 Q136 110 141 130 L143 238 Q100 245 57 238 L59 130 Q64 110 54 90 L57 52 Z`;
+  const d=`<path d="M72 48 Q100 ${b?62:84} 128 48" fill="none" stroke="var(--d)" stroke-width="2.6" opacity=".4" stroke-linecap="round"/>
+  <path d="M57 52 L54 90 Q64 110 59 130 M143 52 L146 90 Q136 110 141 130" fill="none" stroke="var(--d)" stroke-width="1.6" opacity=".25"/>`+stitch('M62 230 Q100 236 138 230')+
+  (b?T(100,126,13,'BEYOND')+T(100,136,4,'SOFT SEASON · 01'):sun(100,128,11)+T(100,150,11,'BEYOND'));
+  return wrap(body,d);
+}
+function ls(b){
+  const n=b?60:77;
+  const body=`M78 50 Q100 ${n} 122 50 L158 64 L178 206 L156 210 L148 124 L148 238 Q100 244 52 238 L52 124 L44 210 L22 206 L42 64 Z`;
+  const d=`<path class="dk" d="M78 50 Q100 ${n} 122 50 L119 54 Q100 ${b?66:84} 81 54 Z" opacity=".5"/>
+  <path class="dk" d="M156 210 L178 206 L177 192 L155 196 Z" opacity=".28"/><path class="dk" d="M44 210 L22 206 L23 192 L45 196 Z" opacity=".28"/>`+stitch('M54 230 Q100 236 146 230')+
+  (b?T(100,112,20,'BEYOND')+sun(100,140,9)+T(100,162,4.4,'THE SOFT COLLECTION'):sun(100,106,13)+T(100,132,12,'BEYOND')+T(100,142,4.2,'LOOK BEYOND'))+
+  `<g><text class="pt" font-size="4.2" transform="translate(163 120) rotate(86)" style="text-anchor:start">BEYOND — BEYOND</text></g>`;
+  return wrap(body,d);
+}
+
+
+/* ── side views (how garments hang on the rail) ── */
+const HANGER_S=`<path d="M100 36 V14 Q100 2 107 2 Q114 2 114 9" fill="none" stroke="#b9bec4" stroke-width="1.9" stroke-linecap="round"/><path d="M91 60 Q91 38 100 33 Q109 38 109 60 Z" fill="#58392c"/>`;
+const shade=d=>`<path d="${d}" fill="url(#gShade)"/><path d="${d}" fill="url(#gSide)"/>`;
+const edge=d=>`<path d="${d}" fill="none" stroke="var(--d)" stroke-width=".9" opacity=".6" stroke-linejoin="round"/>`;
+const part=(d,cls='base',op=1)=>`<path class="${cls}" d="${d}"${op<1?` opacity="${op}"`:''}/>`+shade(d)+edge(d);
+const back=d=>`<path d="${d}" fill="var(--d)" opacity=".26"/>`;
+const vt=(x,y,s,t,it)=>`<text class="pt${it?' it':''}" font-size="${s}" transform="translate(${x} ${y}) rotate(90)" style="text-anchor:start">${t}</text>`;
+const sw=x=>`<svg viewBox="0 0 200 260">${HANGER_S}${x}</svg>`;
+
+function sTee(){
+  const torso='M91 52 L109 52 L116 66 L114 238 Q100 243 86 238 L84 66 Z', sl='M85 58 L112 62 L117 100 L87 104 Q82 82 85 58 Z';
+  return sw(part(torso)+back(torso)+`<path class="dk" d="M91 52 L109 52 L108 58 L92 58 Z" opacity=".5"/>`+
+    `<path d="M87 232 Q100 237 113 232" fill="none" stroke="var(--d)" stroke-width=".9" stroke-dasharray="2.4 2" opacity=".4"/>`+part(sl)+
+    `<path d="M87 96 L116 93" stroke="var(--d)" stroke-width=".9" stroke-dasharray="2.4 2" opacity=".45"/>`);
+}
+function sShirt(){
+  const torso='M90 52 L110 52 L117 66 L115 240 Q100 245 86 240 L84 66 Z', sl='M85 62 L112 64 L116 202 L88 206 Q83 130 85 62 Z';
+  return sw(part(torso)+back(torso)+part('M88 49 L112 49 L116 62 L85 62 Z')+part(sl)+
+    `<path class="dk" d="M88 192 L116 189 L116 203 L88 207 Z" opacity=".3"/>`+vt(96,86,9,'BEYOND'));
+}
+function sBomber(){
+  const torso='M90 52 L110 52 L117 66 L115 224 L85 224 L83 66 Z', sl='M85 62 L112 64 L116 198 L88 202 Q83 130 85 62 Z';
+  return sw(part(torso)+back(torso)+part('M85 224 L115 224 L115 241 Q100 246 85 241 Z','dk',.45)+part('M88 45 L112 45 L114 58 L86 58 Z','dk',.5)+part(sl)+
+    `<path class="dk" d="M88 188 L116 185 L116 199 L88 203 Z" opacity=".42"/>`+vt(92,80,17,'Beyond',true));
+}
+function sHoodie(){
+  const torso='M88 58 L114 58 L118 72 L116 238 Q101 244 86 238 L84 72 Z', sl='M85 66 L113 68 L117 204 L88 208 Q83 135 85 66 Z';
+  return sw(part('M85 60 Q80 26 101 24 Q121 26 116 60 Z')+part(torso)+back(torso)+
+    `<path d="M91 52 Q101 42 112 52" fill="none" stroke="var(--d)" stroke-width="1.4" opacity=".5"/>`+
+    `<path d="M88 180 L112 182 L115 214 L88 214 Z" fill="none" stroke="var(--d)" stroke-width=".9" opacity=".5"/>`+
+    part(sl)+`<path class="dk" d="M88 194 L117 191 L117 205 L88 209 Z" opacity=".32"/>`+vt(96,90,8,'BEYOND'));
+}
+function sTank(){
+  const torso='M92 50 L108 50 L112 80 Q116 110 113 130 L114 238 Q100 243 87 238 L88 130 Q84 110 88 80 Z';
+  return sw(part(torso)+`<path d="M93 68 Q100 62 107 68 L108 118 Q100 128 92 118 Z" fill="var(--d)" opacity=".5"/>`+
+    `<path d="M93 68 Q100 62 107 68 L108 118 Q100 128 92 118 Z" fill="none" stroke="var(--d)" stroke-width="1" opacity=".5"/>`);
+}
+function sLs(){
+  const torso='M91 52 L109 52 L116 66 L114 238 Q100 243 86 238 L84 66 Z', sl='M85 60 L112 62 L116 208 L88 212 Q83 135 85 60 Z';
+  return sw(part(torso)+back(torso)+`<path class="dk" d="M91 52 L109 52 L108 58 L92 58 Z" opacity=".5"/>`+part(sl)+
+    `<path class="dk" d="M88 198 L116 195 L116 209 L88 213 Z" opacity=".3"/>`+vt(96,86,8,'BEYOND'));
+}
+
+const DATA=[
+ {name:'Soft Logo Tee',side:sTee,draw:tee,colors:[['Oat','#efe6d6','#8b6a5a'],['Blush','#f2c5c1','#fff7f1'],['Sage','#c4d3bc','#43604d']]},
+ {name:'Linen Resort Shirt',side:sShirt,draw:shirt,colors:[['Ivory','#f8f4ec','#a58f7a'],['Sky','#c0d4e5','#f5f9fc'],['Butter','#f3e2a6','#8a7035']]},
+ {name:'Sunday Bomber',side:sBomber,draw:bomber,colors:[['Sage','#b9cab1','#f7f3e8'],['Butter','#f1de9f','#7a6430'],['Rose','#efc4c9','#fff6f3']]},
+ {name:'Cloud Hoodie',side:sHoodie,draw:hoodie,colors:[['Oat','#e8dccb','#7c6455'],['Rose','#e9bcbf','#fff4f0'],['Mist','#cbd8df','#3f5866']]},
+ {name:'Everyday Tank',side:sTank,draw:tank,colors:[['Lilac','#d5cae7','#51436f'],['Peach','#f6d0b6','#8a4f35'],['Cream','#f4ecdc','#8b6a5a']]},
+ {name:'Horizon Long Sleeve',side:sLs,draw:ls,colors:[['Sky','#c3d7e8','#f8fbfd'],['Cream','#f1e8d7','#a1634a'],['Lilac','#d6cde8','#ffffff']]},
+];
+
+/* ═════════════ state & helpers ═════════════ */
+const $=s=>document.querySelector(s);
+const app=$('#app'), stage=$('#stage'), rail=$('#rail');
+const N=DATA.length;
+let W=0,H=0, mode='home', focus=2, sel=2, touched=false;
+
+const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const mix=(a,b,t)=>'#'+rgb(a).map((v,i)=>Math.round(v+(rgb(b)[i]-v)*t).toString(16).padStart(2,'0')).join('');
+
+/* build garments */
+const items=DATA.map((d,i)=>{
+  const g=document.createElement('div'); g.className='g intro';
+  g.innerHTML=`<div class="art"><div class="flip"><div class="face side"></div><div class="face front"></div></div></div><div class="tags"></div>`;
+  const art=g.querySelector('.art'); art.style.animationDelay=(-i*0.95)+'s';
+  const tags=g.querySelector('.tags');
+  d.colors.forEach((c,k)=>{
+    const t=document.createElement('button'); t.className='tag'; t.setAttribute('aria-label',c[0]);
+    t.style.cssText=`left:${207+k*21}px;top:44px;background:${c[1]};animation-delay:${-k*1.1}s`;
+    t.innerHTML='<span></span>';
+    t.addEventListener('pointerdown',e=>e.stopPropagation());
+    t.addEventListener('click',e=>{e.stopPropagation();setColor(it,k)});
+    tags.appendChild(t);
+  });
+  stage.appendChild(g);
+  const it={el:g,flip:g.querySelector('.flip'),front:g.querySelector('.face.front'),side:g.querySelector('.face.side'),d,view:'front',color:(i*1)%3,tags:[...tags.children]};
+  paint(it); setColorVars(it); return it;
+});
+function paint(it){it.front.innerHTML=it.d.draw(it.view==='back');if(!it.side.innerHTML)it.side.innerHTML=it.d.side()}
+function setColorVars(it){
+  const [,c,p]=it.d.colors[it.color];
+  it.el.style.setProperty('--c',c);
+  it.el.style.setProperty('--d',mix(c,'#3a2a22',.28));
+  it.el.style.setProperty('--p',p);
+  it.tags.forEach((t,k)=>t.classList.toggle('on',k===it.color));
+}
+function setColor(it,k){
+  if(it.color===k)return; it.color=k; setColorVars(it);
+  if(mode==='detail'&&items[sel]===it){const cn=$('#cname');cn.textContent=it.d.colors[k][0];cn.classList.remove('in');void cn.offsetWidth;cn.classList.add('in')}
+  navigator.vibrate&&navigator.vibrate(6);
+}
+function flipTo(it,v){
+  if(it.view===v)return;
+  it.el.classList.add('flipping');
+  setTimeout(()=>{it.view=v;paint(it)},250);
+  setTimeout(()=>it.el.classList.remove('flipping'),540);
+}
+
+/* ═════════════ layout ═════════════ */
+let sf,sb,sd,railY,detailY,homeX=[];
+function measure(){
+  W=app.clientWidth;H=app.clientHeight;
+  const k=W/390;
+  sf=Math.min(.95,Math.max(.6,.8*k)); sb=sf*.88; sd=Math.min(1.2,Math.max(.8,1.14*k));
+  railY=Math.round(Math.max(92,H*.27));
+  detailY=Math.round(Math.max(90,H*.2));
+  const left=30,right=W-26,span=right-left, focusSlot=156*sf, other=Math.min(48*k+4,(span-focusSlot)/(N-1));
+  const total=focusSlot+other*(N-1), start=left+(span-total)/2;
+  homeX=[];let x=start;
+  for(let i=0;i<N;i++){const w=i===focus?focusSlot:other;homeX.push(x+w/2);x+=w}
+  const capY=railY+260*sf+30;
+  app.style.setProperty('--railY',railY+'px');
+  app.style.setProperty('--capY',capY+'px');
+  app.style.setProperty('--dCapY',(detailY+260*sd+30)+'px');
+  app.style.setProperty('--archTop',(railY-62)+'px');
+  app.style.setProperty('--sunTop',(railY+30)+'px');
+}
+const circ=d=>((d+N+Math.floor(N/2))%N)-Math.floor(N/2);   // shortest offset on the loop
+function layout(){
+  measure();
+  items.forEach((it,i)=>{
+    const g=it.el; let x,y,s,op=1,bl=0;
+    if(mode==='home'){
+      x=homeX[i]; y=railY; s=i===focus?sf:sb;
+      g.style.zIndex=i===focus?20:10-Math.abs(i-focus);
+      g.classList.toggle('focus',i===focus); g.classList.toggle('front',i===focus); g.classList.remove('sel');
+      if(app.classList.contains('intro')){y-=60;op=0}
+    }else{
+      const d=circ(i-sel), gap=Math.min(88,W*.24);
+      if(d===0){x=W/2-14;y=detailY;s=sd;g.style.zIndex=30;g.classList.add('sel','front')}
+      else{x=W/2-14+d*gap*1.15;y=detailY+14;s=sd*.5;op=Math.abs(d)===1?.3:Math.abs(d)===2?.12:0;bl=Math.abs(d)===1?7:10;g.style.zIndex=10-Math.abs(d);g.classList.remove('sel','front')}
+      g.classList.remove('focus');
+    }
+    g.style.transform=`translate(${x-100}px,${y}px) scale(${s})`;
+    g.style.opacity=op; g.style.filter=bl?`blur(${bl}px)`:'blur(0px)';
+    g.style.pointerEvents='none';
+  });
+}
+function updateCap(){
+  const c=$('#cap'); c.textContent=DATA[focus].name; c.classList.remove('in');void c.offsetWidth;c.classList.add('in');
+}
+function updateDetail(){
+  const n=$('#dname'); n.textContent=DATA[sel].name; n.classList.remove('in');void n.offsetWidth;n.classList.add('in');
+  const cn=$('#cname'); cn.textContent=DATA[sel].colors[items[sel].color][0];
+  $('#seg').dataset.view=items[sel].view;
+  document.querySelectorAll('#seg button').forEach(b=>b.classList.toggle('on',b.dataset.v===items[sel].view));
+}
+
+/* ═════════════ interactions ═════════════ */
+function setFocus(i){ if(i===focus||mode!=='home')return; focus=i; layout(); updateCap(); navigator.vibrate&&navigator.vibrate(5)}
+function hitIdx(x,y){
+  const hit=document.elementsFromPoint(x,y).find(n=>n.closest&&n.closest('.g path,.g text,.g circle,.g rect,.g g'));
+  return hit?items.findIndex(t=>t.el===hit.closest('.g')):-1;
+}
+function zone(x){const l=22,span=W-44;return Math.max(0,Math.min(N-1,Math.floor((x-l)/(span/N))))}
+
+function openDetail(i){
+  if(mode==='detail')return; mode='detail'; sel=i; focus=i; app.classList.add('detail'); updateDetail(); layout();
+}
+function closeDetail(){
+  if(mode!=='detail')return;
+  items.forEach(it=>{if(it.view!=='front')flipTo(it,'front')});
+  mode='home'; focus=sel; app.classList.remove('detail'); layout(); updateCap();
+}
+function go(dir){
+  if(mode!=='detail')return;
+  const old=items[sel]; if(old.view!=='front'){old.view='front';paint(old)}
+  sel=(sel+dir+N)%N; focus=sel; layout(); updateDetail();
+  navigator.vibrate&&navigator.vibrate(8);
+}
+
+let down=false,sx=0,sy=0,moved=false,tapIdx=null,lastFocusAtDown=0;
+app.addEventListener('pointerdown',e=>{
+  stopDemo(); if(e.target.closest('a,button'))return;
+  down=true;sx=e.clientX;sy=e.clientY;moved=false;lastFocusAtDown=focus;
+  tapIdx=null;
+  if(mode==='home'){
+    // which garment is under the finger?
+    const hit=document.elementsFromPoint(e.clientX,e.clientY).find(n=>n.closest&&n.closest('.g path,.g text,.g circle,.g rect,.g g'));
+    if(hit){const g=hit.closest('.g');tapIdx=items.findIndex(t=>t.el===g)}
+    if(e.pointerType!=='mouse'||true){ /* touching the rail instantly picks that garment (like hover) */
+      if(tapIdx==null||tapIdx<0) setFocus(zone(e.clientX)); }
+  }
+});
+app.addEventListener('pointermove',e=>{
+  if(mode!=='home')return;
+  if(!down){ if(e.pointerType==='mouse'){ const h=hitIdx(e.clientX,e.clientY); if(h>=0){stopDemo();setFocus(h)} } return }
+  if(Math.abs(e.clientX-sx)>7)moved=true;
+  if(moved) setFocus(zone(e.clientX));
+});
+window.addEventListener('pointerup',e=>{
+  if(!down)return; down=false;
+  const dx=e.clientX-sx, dy=e.clientY-sy;
+  if(mode==='detail'){
+    if(Math.abs(dx)>46&&Math.abs(dx)>Math.abs(dy)) go(dx<0?1:-1);
+    else if(dy>90&&Math.abs(dy)>Math.abs(dx)) closeDetail();
+    return;
+  }
+  if(!moved&&tapIdx!=null&&tapIdx>=0){
+    if(tapIdx===lastFocusAtDown) openDetail(tapIdx); else setFocus(tapIdx);
+  }
+});
+window.addEventListener('pointercancel',()=>{down=false});
+
+$('#avail').addEventListener('click',e=>{e.preventDefault();openDetail(focus)});
+$('#close').addEventListener('click',closeDetail);
+$('#prev').addEventListener('click',()=>go(-1));
+$('#next').addEventListener('click',()=>go(1));
+document.querySelectorAll('#seg button').forEach(b=>b.addEventListener('click',()=>{
+  const v=b.dataset.v, it=items[sel]; if(it.view===v)return;
+  $('#seg').dataset.view=v; document.querySelectorAll('#seg button').forEach(x=>x.classList.toggle('on',x===b));
+  flipTo(it,v);
+}));
+window.addEventListener('keydown',e=>{
+  stopDemo();
+  if(e.key==='ArrowRight'){mode==='detail'?go(1):setFocus((focus+1)%N)}
+  else if(e.key==='ArrowLeft'){mode==='detail'?go(-1):setFocus((focus+N-1)%N)}
+  else if(e.key==='Enter'&&mode==='home')openDetail(focus);
+  else if(e.key==='Escape')closeDetail();
+});
+window.addEventListener('resize',layout);
+
+/* auto demo until the user touches anything (mirrors the video) */
+let demo=null;
+function stopDemo(){ if(demo){clearInterval(demo);demo=null} if(!touched){touched=true;app.classList.add('touched')} }
+
+/* marquee */
+const phrase=['NEW DROPS','BEYOND','THE SOFT COLLECTION','SEASON 01','LOOK BEYOND','WEAR THE HORIZON'];
+const row=phrase.map(p=>`<span>${p}<b>✦</b></span>`).join('');
+$('#track').innerHTML=row+row+row+row;
+
+/* intro */
+measure(); layout(); updateCap();
+requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  items.forEach((it,i)=>{it.el.style.transitionDelay=(i*85)+'ms';it.el.classList.remove('intro')});
+  app.classList.remove('intro'); layout();
+  setTimeout(()=>items.forEach(it=>it.el.style.transitionDelay=''),1500);
+}));
+setTimeout(()=>{ if(!touched) demo=setInterval(()=>{ if(mode==='home') setFocus((focus+1)%N) },2300) },3000);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(layout);
+</script>
+</body>
+</html>

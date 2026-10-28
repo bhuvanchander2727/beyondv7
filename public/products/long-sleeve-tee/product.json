@@ -1,0 +1,50 @@
+{
+  "name": "TACTICAL RIB LONGSLEEVE",
+  "slug": "long-sleeve-tee",
+  "price": "$110",
+  "priceUsd": "$110",
+  "tagline": "Ribbed cuffs with sleeve embroidery",
+  "description": "Tactical waffle-knit thermal jersey crafted from 360gsm combed cotton. Features elongated articulated rib cuffs, subtle tonal embroidery on forearm, and durable flatlock seams throughout.",
+  "category": "tops",
+  "edition": "04 / 05",
+  "badge": "NEW",
+  "hook": {
+    "x": 0.5,
+    "y": 0.09
+  },
+  "colors": [
+    {
+      "id": "onyx",
+      "name": "Washed Onyx",
+      "hex": "#1a1918",
+      "front": "/products/long-sleeve-tee/onyx/front.webp",
+      "frontRail": "/products/long-sleeve-tee/onyx/front_rail.webp",
+      "side": "/products/long-sleeve-tee/onyx/side.webp",
+      "sideRail": "/products/long-sleeve-tee/onyx/side_rail.webp",
+      "back": "/products/long-sleeve-tee/onyx/back.webp",
+      "backRail": "/products/long-sleeve-tee/onyx/back_rail.webp"
+    },
+    {
+      "id": "slate",
+      "name": "Tactical Slate",
+      "hex": "#363a3f",
+      "front": "/products/long-sleeve-tee/slate/front.webp",
+      "frontRail": "/products/long-sleeve-tee/slate/front_rail.webp",
+      "side": "/products/long-sleeve-tee/slate/side.webp",
+      "sideRail": "/products/long-sleeve-tee/slate/side_rail.webp",
+      "back": "/products/long-sleeve-tee/slate/back.webp",
+      "backRail": "/products/long-sleeve-tee/slate/back_rail.webp"
+    },
+    {
+      "id": "stone",
+      "name": "Aged Stone",
+      "hex": "#cbc6bb",
+      "front": "/products/long-sleeve-tee/stone/front.webp",
+      "frontRail": "/products/long-sleeve-tee/stone/front_rail.webp",
+      "side": "/products/long-sleeve-tee/stone/side.webp",
+      "sideRail": "/products/long-sleeve-tee/stone/side_rail.webp",
+      "back": "/products/long-sleeve-tee/stone/back.webp",
+      "backRail": "/products/long-sleeve-tee/stone/back_rail.webp"
+    }
+  ]
+}

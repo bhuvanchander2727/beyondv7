@@ -1,0 +1,49 @@
+{
+  "slug": "varsity-jacket",
+  "name": "ARCHIVE VARSITY JACKET",
+  "price": "$280",
+  "tagline": "Italian wool body & vintage grain leather",
+  "hook": {
+    "x": 0.5,
+    "y": 0.09
+  },
+  "colors": [
+    {
+      "id": "sage",
+      "name": "Sage",
+      "hex": "#b9cab1",
+      "dir": "sage",
+      "front": "/products/varsity-jacket/sage/front.webp",
+      "frontRail": "/products/varsity-jacket/sage/front_rail.webp",
+      "side": "/products/varsity-jacket/sage/side.webp",
+      "sideRail": "/products/varsity-jacket/sage/side_rail.webp",
+      "back": "/products/varsity-jacket/sage/back.webp",
+      "backRail": "/products/varsity-jacket/sage/back_rail.webp"
+    },
+    {
+      "id": "sky",
+      "name": "Sky",
+      "hex": "#c0d4e5",
+      "dir": "sky",
+      "front": "/products/varsity-jacket/sky/front.webp",
+      "frontRail": "/products/varsity-jacket/sky/front_rail.webp",
+      "side": "/products/varsity-jacket/sky/side.webp",
+      "sideRail": "/products/varsity-jacket/sky/side_rail.webp",
+      "back": "/products/varsity-jacket/sky/back.webp",
+      "backRail": "/products/varsity-jacket/sky/back_rail.webp"
+    },
+    {
+      "id": "rose",
+      "name": "Rose",
+      "hex": "#efc4c9",
+      "dir": "rose",
+      "front": "/products/varsity-jacket/rose/front.webp",
+      "frontRail": "/products/varsity-jacket/rose/front_rail.webp",
+      "side": "/products/varsity-jacket/rose/side.webp",
+      "sideRail": "/products/varsity-jacket/rose/side_rail.webp",
+      "back": "/products/varsity-jacket/rose/back.webp",
+      "backRail": "/products/varsity-jacket/rose/back_rail.webp"
+    }
+  ],
+  "description": "Heavyweight boiled Italian wool body with drum-dyed vintage grain cowhide sleeves. Striped heavy rib knit at collar, cuffs and hem. Tonal chenille B patch on chest."
+}

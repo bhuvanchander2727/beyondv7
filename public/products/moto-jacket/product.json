@@ -1,0 +1,53 @@
+{
+  "slug": "moto-jacket",
+  "name": "DISTRESSED MOTO JACKET",
+  "price": "$480",
+  "priceUsd": "$480",
+  "tagline": "Full-grain distressed cowhide & silver hardware",
+  "category": "outerwear",
+  "edition": "02 / 09",
+  "badge": "CORE",
+  "description": "Engineered from 1.4mm vegetable-tanned Italian calfskin, hand-distressed along stress points for natural patina. Features heavy asymmetrical Japanese silver zips, dual interior welt pockets, and custom antique nickel buckles.",
+  "hook": {
+    "x": 0.5,
+    "y": 0.09
+  },
+  "colors": [
+    {
+      "id": "onyx",
+      "name": "Vintage Onyx",
+      "hex": "#1d1c1a",
+      "dir": "onyx",
+      "front": "/products/moto-jacket/onyx/front.webp",
+      "frontRail": "/products/moto-jacket/onyx/front_rail.webp",
+      "side": "/products/moto-jacket/onyx/side.webp",
+      "sideRail": "/products/moto-jacket/onyx/side_rail.webp",
+      "back": "/products/moto-jacket/onyx/back.webp",
+      "backRail": "/products/moto-jacket/onyx/back_rail.webp"
+    },
+    {
+      "id": "charcoal",
+      "name": "Washed Charcoal",
+      "hex": "#343230",
+      "dir": "charcoal",
+      "front": "/products/moto-jacket/charcoal/front.webp",
+      "frontRail": "/products/moto-jacket/charcoal/front_rail.webp",
+      "side": "/products/moto-jacket/charcoal/side.webp",
+      "sideRail": "/products/moto-jacket/charcoal/side_rail.webp",
+      "back": "/products/moto-jacket/charcoal/back.webp",
+      "backRail": "/products/moto-jacket/charcoal/back_rail.webp"
+    },
+    {
+      "id": "umber",
+      "name": "Raw Umber",
+      "hex": "#42372c",
+      "dir": "umber",
+      "front": "/products/moto-jacket/umber/front.webp",
+      "frontRail": "/products/moto-jacket/umber/front_rail.webp",
+      "side": "/products/moto-jacket/umber/side.webp",
+      "sideRail": "/products/moto-jacket/umber/side_rail.webp",
+      "back": "/products/moto-jacket/umber/back.webp",
+      "backRail": "/products/moto-jacket/umber/back_rail.webp"
+    }
+  ]
+}
