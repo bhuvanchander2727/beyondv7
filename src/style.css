@@ -461,9 +461,40 @@ img {
   width: 270px;
   height: 360px;
   transform-origin: 50% 9%;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
   will-change: transform, opacity;
   transition: filter 0.5s var(--ease);
+}
+
+.garment-hit-target {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: pointer;
+  pointer-events: auto;
+  display: block;
+  text-indent: -9999px;
+}
+
+.product-wrapper.focused .garment-hit-target {
+  width: 250px;
+}
+
+@media (min-width: 1024px) {
+  .garment-hit-target {
+    width: 110px;
+  }
+  .product-wrapper.focused .garment-hit-target {
+    width: 300px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -2371,3 +2402,11 @@ img {
   border-bottom: 1px solid rgba(69, 65, 59, 0.2);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .product-sway {
+    transform: none !important;
+  }
+  .face.side, .face.front, .face.back, .product-wrapper, .flip-card {
+    transition: none !important;
+  }
+}

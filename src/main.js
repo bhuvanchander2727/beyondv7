@@ -87,29 +87,38 @@ async function bootstrap() {
   // Complete loading screen
   uiManager.setLoaderProgress(1.0, 'ARCHIVE READY');
 
-  // 6. 60 FPS Animation & Spring Physics Loop
-  let lastTime = performance.now();
-  let isPaused = false;
+  // 6. 60 FPS Animation & Spring Physics Loop (Strictly single active loop)
+  if (!window.__beyond_loop_active) {
+    window.__beyond_loop_active = true;
+    let lastTime = performance.now();
+    let isPaused = false;
+    let rafId = null;
 
-  document.addEventListener('visibilitychange', () => {
-    isPaused = document.hidden;
-    if (!isPaused) lastTime = performance.now();
-  });
+    function renderLoop(currentTime) {
+      if (isPaused) return;
 
-  function renderLoop(currentTime) {
-    requestAnimationFrame(renderLoop);
-    if (isPaused) return;
+      const delta = Math.min((currentTime - lastTime) / 1000.0, 0.05);
+      const elapsedTime = currentTime / 1000.0;
+      lastTime = currentTime;
 
-    const delta = Math.min((currentTime - lastTime) / 1000.0, 0.1);
-    const elapsedTime = currentTime / 1000.0;
-    lastTime = currentTime;
+      // Update spring physics and stage state
+      stageManager.update(elapsedTime, delta);
+      interactionManager.update(delta);
 
-    // Update spring physics and stage state
-    stageManager.update(elapsedTime, delta);
-    interactionManager.update(delta);
+      rafId = requestAnimationFrame(renderLoop);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      isPaused = document.hidden;
+      if (!isPaused) {
+        lastTime = performance.now();
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(renderLoop);
+      }
+    });
+
+    rafId = requestAnimationFrame(renderLoop);
   }
-
-  requestAnimationFrame(renderLoop);
 }
 
 window.addEventListener('DOMContentLoaded', bootstrap);
