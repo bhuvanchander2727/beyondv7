@@ -560,10 +560,12 @@ img {
 }
 
 /* Clean Mid-Turn Transition: Side narrows, Front expands smoothly */
+/* Fix: removed 0.2s delay on .face.side unfocus — delay caused a 200ms window
+   where both faces were simultaneously invisible, producing a rectangular flicker. */
 .face.side {
   transform: scaleX(1);
   filter: brightness(0.92);
-  transition: transform 0.3s cubic-bezier(0.15, 0.75, 0.3, 1) 0.2s, filter 0.3s;
+  transition: transform 0.28s cubic-bezier(0.15, 0.75, 0.3, 1), filter 0.28s;
 }
 
 .face.front {
@@ -582,10 +584,12 @@ img {
   transition: transform 0.22s cubic-bezier(0.6, 0, 0.9, 0.5), filter 0.22s;
 }
 
+/* Fix: reduced 0.2s delay to 0.06s — minimal crossover so the front face
+   appears almost immediately as the side collapses, eliminating the empty-box gap. */
 .product-wrapper.focused .face.front {
   transform: scaleX(1);
   filter: brightness(1);
-  transition: transform 0.32s cubic-bezier(0.15, 0.75, 0.3, 1) 0.2s, filter 0.32s;
+  transition: transform 0.32s cubic-bezier(0.15, 0.75, 0.3, 1) 0.06s, filter 0.32s 0.06s;
 }
 
 /* Detail View 3D Flip */
